@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="7448bd38-4dfb-4666-a46c-2480e38487a9" name="Alex@SKYCATCHER 2014-02-10 19:03:49" runUser="SKYCATCHER\Alex" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Default Test Settings" id="04e57b86-4a36-4194-99c8-c008125244e7">
+    <Deployment runDeploymentRoot="Alex_SKYCATCHER 2014-02-10 19_03_49">
+      <DeploymentItem filename="L:\Repos\Slacker\Slacker\Slacker\bin\Debug\Slacker.exe" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2014-02-10T19:03:49.2819774+10:00" queuing="2014-02-10T19:03:50.4300431+10:00" start="2014-02-10T19:03:50.4870463+10:00" finish="2014-02-10T19:04:00.3906128+10:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="6" executed="2" passed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="4" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="SKYCATCHER" outcome="Error" timestamp="2014-02-10T19:04:00.3886127+10:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="descriptionTest" storage="l:\repos\slacker\slackertest\slackertest\bin\debug\slackertest.dll" id="1515630d-dfcc-e989-ce78-8a06a9a18109">
+      <Execution id="265196ca-164b-491b-bbe8-ea6eaa0db649" />
+      <TestMethod codeBase="L:/Repos/Slacker/SlackerTest/SlackerTest/bin/Debug/SlackerTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SlackerTest.TimeEntryTest, SlackerTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="descriptionTest" />
+    </UnitTest>
+    <UnitTest name="jobIdTest" storage="l:\repos\slacker\slackertest\slackertest\bin\debug\slackertest.dll" id="7bd46978-efe3-9a7a-c3e2-ac94d0f538c9">
+      <Execution id="8b47e95c-c9fb-45d8-afb7-48ffa8ff5c31" />
+      <TestMethod codeBase="L:/Repos/Slacker/SlackerTest/SlackerTest/bin/Debug/SlackerTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SlackerTest.TimeEntryTest, SlackerTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="jobIdTest" />
+    </UnitTest>
+    <UnitTest name="TestMethod1" storage="l:\repos\slacker\slackertest\slackertest\bin\debug\slackertest.dll" id="70d25da6-e015-14d8-20bd-2af15a0e316b">
+      <Execution id="4bce4e61-8379-403a-bd58-979817b2eaee" />
+      <TestMethod codeBase="L:/Repos/Slacker/SlackerTest/SlackerTest/bin/Debug/SlackerTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SlackerTest.UnitTest1, SlackerTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TestMethod1" />
+    </UnitTest>
+    <UnitTest name="hoursTest" storage="l:\repos\slacker\slackertest\slackertest\bin\debug\slackertest.dll" id="dc2ad5d8-9c1d-b42a-fbf8-9c97bedf3bd7">
+      <Execution id="78a75ef3-0f30-40fc-ad5d-26290230df5f" />
+      <TestMethod codeBase="L:/Repos/Slacker/SlackerTest/SlackerTest/bin/Debug/SlackerTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SlackerTest.TimeEntryTest, SlackerTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="hoursTest" />
+    </UnitTest>
+    <UnitTest name="TimeEntryConstructorTest" storage="l:\repos\slacker\slackertest\slackertest\bin\debug\slackertest.dll" id="85e00895-cff5-7019-ac28-012a6dad24ff">
+      <Execution id="aa9711ee-ed87-4339-888f-d6acd7ab43b9" />
+      <TestMethod codeBase="L:/Repos/Slacker/SlackerTest/SlackerTest/bin/Debug/SlackerTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SlackerTest.TimeEntryTest, SlackerTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="TimeEntryConstructorTest" />
+    </UnitTest>
+    <UnitTest name="dayTest" storage="l:\repos\slacker\slackertest\slackertest\bin\debug\slackertest.dll" id="e6c5df60-e363-015d-5c16-215d0779b766">
+      <Execution id="f93c5fbc-0bd3-40cb-9d41-b20981ff650a" />
+      <TestMethod codeBase="L:/Repos/Slacker/SlackerTest/SlackerTest/bin/Debug/SlackerTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="SlackerTest.TimeEntryTest, SlackerTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="dayTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1515630d-dfcc-e989-ce78-8a06a9a18109" executionId="265196ca-164b-491b-bbe8-ea6eaa0db649" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="70d25da6-e015-14d8-20bd-2af15a0e316b" executionId="4bce4e61-8379-403a-bd58-979817b2eaee" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="7bd46978-efe3-9a7a-c3e2-ac94d0f538c9" executionId="8b47e95c-c9fb-45d8-afb7-48ffa8ff5c31" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="85e00895-cff5-7019-ac28-012a6dad24ff" executionId="aa9711ee-ed87-4339-888f-d6acd7ab43b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="dc2ad5d8-9c1d-b42a-fbf8-9c97bedf3bd7" executionId="78a75ef3-0f30-40fc-ad5d-26290230df5f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="e6c5df60-e363-015d-5c16-215d0779b766" executionId="f93c5fbc-0bd3-40cb-9d41-b20981ff650a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="265196ca-164b-491b-bbe8-ea6eaa0db649" testId="1515630d-dfcc-e989-ce78-8a06a9a18109" testName="descriptionTest" computerName="SKYCATCHER" duration="00:00:00.0130025" startTime="2014-02-10T19:03:50.5510500+10:00" endTime="2014-02-10T19:03:51.5501071+10:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="265196ca-164b-491b-bbe8-ea6eaa0db649">
+    </UnitTestResult>
+    <UnitTestResult executionId="4bce4e61-8379-403a-bd58-979817b2eaee" testId="70d25da6-e015-14d8-20bd-2af15a0e316b" testName="TestMethod1" computerName="SKYCATCHER" duration="00:00:08.8365054" startTime="2014-02-10T19:03:51.5531073+10:00" endTime="2014-02-10T19:04:00.3896127+10:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4bce4e61-8379-403a-bd58-979817b2eaee">
+    </UnitTestResult>
+    <UnitTestResult executionId="8b47e95c-c9fb-45d8-afb7-48ffa8ff5c31" testId="7bd46978-efe3-9a7a-c3e2-ac94d0f538c9" testName="jobIdTest" computerName="SKYCATCHER" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="8b47e95c-c9fb-45d8-afb7-48ffa8ff5c31">
+    </UnitTestResult>
+    <UnitTestResult executionId="aa9711ee-ed87-4339-888f-d6acd7ab43b9" testId="85e00895-cff5-7019-ac28-012a6dad24ff" testName="TimeEntryConstructorTest" computerName="SKYCATCHER" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aa9711ee-ed87-4339-888f-d6acd7ab43b9">
+    </UnitTestResult>
+    <UnitTestResult executionId="78a75ef3-0f30-40fc-ad5d-26290230df5f" testId="dc2ad5d8-9c1d-b42a-fbf8-9c97bedf3bd7" testName="hoursTest" computerName="SKYCATCHER" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="78a75ef3-0f30-40fc-ad5d-26290230df5f">
+    </UnitTestResult>
+    <UnitTestResult executionId="f93c5fbc-0bd3-40cb-9d41-b20981ff650a" testId="e6c5df60-e363-015d-5c16-215d0779b766" testName="dayTest" computerName="SKYCATCHER" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f93c5fbc-0bd3-40cb-9d41-b20981ff650a">
+    </UnitTestResult>
+  </Results>
+</TestRun>

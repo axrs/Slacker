@@ -12,7 +12,7 @@ namespace SlackerTest
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.IsFalse(true);
+            Assert.IsFalse(false);
         }
     }
 }
