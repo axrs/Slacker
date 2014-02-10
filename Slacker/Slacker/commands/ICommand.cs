@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Slacker
+namespace Slacker.commands
 {
     /// <summary>
     /// Command Pattern Interface
@@ -12,6 +12,6 @@ namespace Slacker
         /// <summary>
         /// Command Interface
         /// </summary>
-        void execute();
+        bool execute();
     }
 }

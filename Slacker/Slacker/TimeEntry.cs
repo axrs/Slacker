@@ -9,8 +9,8 @@ namespace Slacker
     /// </summary>
     class TimeEntry
     {
-        private String _jobId = String.Empty;
-        private String _description = String.Empty;
+        private string _jobId = string.Empty;
+        private string _description = string.Empty;
         private double _hours = 0.0;
         private DateTime _day = DateTime.Today;
 
@@ -18,13 +18,18 @@ namespace Slacker
         {
         }
 
-        public String description
+        public override string ToString()
+        {
+            return string.Format("{3} {0} | {1} | {2}", _jobId, _hours, _description, _day);
+        }
+
+        public string description
         {
             get { return _description; }
             set { _description = value; }
         }
 
-        public String jobId
+        public string jobId
         {
             get { return _jobId; }
             set { _jobId = value; }

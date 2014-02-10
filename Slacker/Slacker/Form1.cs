@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using Slacker.dao;
 
 namespace Slacker
 {
@@ -13,6 +14,8 @@ namespace Slacker
         public Form1()
         {
             InitializeComponent();
+            CSVDAO dao = new CSVDAO(@"L:\Repos\Slacker\Basis\sample.csv");
+            dao.execute();
         }
     }
 }
