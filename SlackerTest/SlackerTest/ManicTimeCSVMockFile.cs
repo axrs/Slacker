@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SlackerTest
 {
-    class MockFileHandler : Slacker.Native.IFileHandler
+    class ManicTimeCSVMockFile : Slacker.Native.IFileHandler
     {
         public string[] ReadAllLines(string file)
         {

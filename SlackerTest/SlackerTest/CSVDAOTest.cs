@@ -119,7 +119,7 @@ namespace SlackerTest
         {
             string file = string.Empty;
             CSVDAO target = new CSVDAO(file);
-            target.FileHandler = new MockFileHandler();
+            target.FileHandler = new ManicTimeCSVMockFile();
             target.loadTimes();
             Assert.AreEqual(8, target.count);
         }
