@@ -1,57 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using Slacker.commands;
-
-namespace Slacker.dao
+using Slacker.Commands;
+using Slacker;
+using Slacker.Native;
+namespace Slacker.DAO
 {
-    class CSVDAO : DAO, ICommand
+    class CSVDAO : AbstractDAO, ICommand
     {
-        private string _filePath = string.Empty;
-
-        private bool _hasValidFilePath = false;
         private List<TimeEntry> _times = new List<TimeEntry>();
-
         private DateTime _entryDate = DateTime.Now;
+        private string _filePath = string.Empty;
+        string[] _lines;
 
-        public CSVDAO(String filePath)
+        private Slacker.Native.IFileHandler _handler;
+
+
+        public CSVDAO(string file)
         {
-            _filePath = filePath;
-            _hasValidFilePath = File.Exists(_filePath);
+            this.file = file;
+            FileHandler = new WindowsFileHandler();
         }
 
-        /// <summary>
-        /// Executes the CSV DAO Process to read the file
-        /// </summary>
-        /// <returns>True if run on a valid file</returns>
-        public override bool execute()
+        public string file
         {
-            bool hasRun = false;
-
-            if (_hasValidFilePath)
+            get
             {
-                loadTimes();
-
-                hasRun = true;
+                return _filePath;
             }
-            return hasRun;
+            set
+            {
+                _filePath = value;
+            }
+        }
+
+        public IFileHandler FileHandler
+        {
+            get
+            {
+                return _handler;
+            }
+            set
+            {
+                _handler = value;
+            }
         }
 
         /// <summary>
         /// Processes the first line of the file to determine the entry dates
         /// </summary>
         /// <param name="line"></param>
-        private void processFirstLine(String line)
+        private DateTime processFirstLine(String line)
         {
             string result = line.Split(',')[2].Trim('"');
-            this._entryDate = Convert.ToDateTime(result);
+            return Convert.ToDateTime(result);
         }
 
         /// <summary>
         /// Processes the entry lines reading the time spent and hours
         /// </summary>
         /// <param name="line"></param>
-        private void processEntry(String line)
+        private TimeEntry processEntry(String line)
         {
             string[] fields = line.Split(',');
 
@@ -60,7 +69,7 @@ namespace Slacker.dao
             entry.jobId = fields[0].Trim('"');
             entry.description = fields[1].Trim('"');
             entry.hours = Convert.ToDouble(fields[2].Trim('"'));
-            _times.Add(entry);
+            return entry;
         }
 
         /// <summary>
@@ -69,16 +78,12 @@ namespace Slacker.dao
         /// <returns></returns>
         public override List<TimeEntry> getTimes()
         {
-            throw new NotImplementedException();
+            return _times;
         }
 
-        /// <summary>
-        /// Gets the total number of entries found
-        /// </summary>
-        /// <returns></returns>
-        public override int count()
+        new public int count
         {
-            return _times.Count;
+            get { return _times.Count; }
         }
 
         /// <summary>
@@ -86,13 +91,14 @@ namespace Slacker.dao
         /// </summary>
         public override void loadTimes()
         {
-            string[] lines = File.ReadAllLines(_filePath);
-            processFirstLine(lines[0]);
+            string[] lines = FileHandler.ReadAllLines(file);
+
+            _entryDate = processFirstLine(lines[0]);
 
             //process the second to second last lines
             for (int i = 1; i < lines.Length - 1; i++)
             {
-                processEntry(lines[i]);
+                _times.Add(processEntry(lines[i]));
             }
         }
         /// <summary>
@@ -101,6 +107,17 @@ namespace Slacker.dao
         public override void saveTimes()
         {
             throw new NotImplementedException();
+        }
+
+        public bool execute()
+        {
+            bool hasRun = false;
+            if (file != string.Empty && FileHandler.Exists(file))
+            {
+                loadTimes();
+                hasRun = true;
+            }
+            return hasRun;
         }
     }
 }

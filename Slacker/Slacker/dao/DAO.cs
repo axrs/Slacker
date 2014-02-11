@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Slacker.dao
+namespace Slacker.DAO
 {
-    abstract class DAO
+    abstract class AbstractDAO
     {
-        public abstract int count();
+        public int count;
         public abstract void loadTimes();
         public abstract void saveTimes();
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Slacker.commands
+namespace Slacker.Commands
 {
     /// <summary>
     /// Command Pattern Interface
