@@ -15,7 +15,6 @@ namespace Slacker.DAO
 
         private Slacker.Native.IFileHandler _handler;
 
-
         public CSVDAO(string file)
         {
             this.file = file;
