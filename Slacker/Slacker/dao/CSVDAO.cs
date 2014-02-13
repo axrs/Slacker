@@ -17,8 +17,9 @@ namespace Slacker.DAO
 
         public CSVDAO(string file)
         {
-            this.file = file;
             FileHandler = new WindowsFileHandler();
+
+            this.file = file;
         }
 
         public string file
@@ -30,6 +31,7 @@ namespace Slacker.DAO
             set
             {
                 _filePath = value;
+                loadTimes();
             }
         }
 

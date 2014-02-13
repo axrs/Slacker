@@ -9,10 +9,37 @@ namespace Slacker
     /// </summary>
     class TimeEntry
     {
+
+        private static string DEFAULT_TASK_TYPE= "D";
+        private static int DEFAULT_EMPLOYEE_ID = 58;
         private string _jobId = string.Empty;
         private string _description = string.Empty;
         private double _hours = 0.0;
         private DateTime _day = DateTime.Today;
+
+        public static string DefaultTaskType
+        {
+            get
+            {
+                return DEFAULT_TASK_TYPE;
+            }
+            set
+            {
+                DEFAULT_TASK_TYPE = value;
+            }
+        }
+
+        public static int Employee
+        {
+            get
+            {
+                return DEFAULT_EMPLOYEE_ID;
+            }
+            set
+            {
+                DEFAULT_EMPLOYEE_ID = value;
+            }
+        }
 
         public TimeEntry()
         {
