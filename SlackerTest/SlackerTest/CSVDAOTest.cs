@@ -122,6 +122,7 @@ namespace SlackerTest
             target.FileHandler = new ManicTimeCSVMockFile();
             target.loadTimes();
             Assert.AreEqual(8, target.count);
+            Assert.AreEqual("With Pat, regarding Schedule", target.getTimes()[7].description);
         }
 
         /// <summary>

@@ -4,6 +4,8 @@ using System.IO;
 using Slacker.Commands;
 using Slacker;
 using Slacker.Native;
+using Microsoft.VisualBasic.FileIO;
+
 namespace Slacker.DAO
 {
     class CSVDAO : AbstractDAO, ICommand
@@ -11,7 +13,6 @@ namespace Slacker.DAO
         private List<TimeEntry> _times = new List<TimeEntry>();
         private DateTime _entryDate = DateTime.Now;
         private string _filePath = string.Empty;
-        string[] _lines;
 
         private Slacker.Native.IFileHandler _handler;
 
@@ -31,7 +32,6 @@ namespace Slacker.DAO
             set
             {
                 _filePath = value;
-                loadTimes();
             }
         }
 
@@ -57,6 +57,10 @@ namespace Slacker.DAO
             return Convert.ToDateTime(result);
         }
 
+        private DateTime processFirstLine(string[] fields)
+        {
+            return Convert.ToDateTime(fields[2]);
+        }
         /// <summary>
         /// Processes the entry lines reading the time spent and hours
         /// </summary>
@@ -65,6 +69,17 @@ namespace Slacker.DAO
         {
             string[] fields = line.Split(',');
 
+            TimeEntry entry = new TimeEntry();
+            entry.day = _entryDate;
+            entry.jobId = fields[0].Trim('"');
+            entry.description = fields[1].Trim('"');
+            entry.hours = Convert.ToDouble(fields[2].Trim('"'));
+            return entry;
+        }
+
+
+        private TimeEntry processEntry(string[] fields)
+        {
             TimeEntry entry = new TimeEntry();
             entry.day = _entryDate;
             entry.jobId = fields[0].Trim('"');
@@ -99,7 +114,16 @@ namespace Slacker.DAO
             //process the second to second last lines
             for (int i = 1; i < lines.Length - 1; i++)
             {
-                _times.Add(processEntry(lines[i]));
+                using (TextFieldParser parser = new TextFieldParser(new System.IO.StringReader(lines[i])))
+                {
+                    parser.SetDelimiters(new string[] { "," });
+                    parser.HasFieldsEnclosedInQuotes = true;
+                    string[] fields = parser.ReadFields();
+                    if (fields != null)
+                    {
+                        _times.Add(processEntry(fields));
+                    }
+                }
             }
         }
         /// <summary>

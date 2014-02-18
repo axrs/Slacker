@@ -15,7 +15,7 @@ namespace Slacker
         private MySQLStorage _store = new MySQLStorage();
         public Form1()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,6 +25,8 @@ namespace Slacker
             {
                 string fileToOpen = FD.FileName;
                 CSVDAO list = new CSVDAO(FD.FileName);
+                list.FileHandler = new Slacker.Native.WindowsFileHandler();
+                list.loadTimes();
                 _store.insert(list.getTimes());
             }
         }

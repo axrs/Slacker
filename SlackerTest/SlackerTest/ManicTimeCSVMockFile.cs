@@ -18,7 +18,7 @@ namespace SlackerTest
                                  "\"T14001\",\"Meeting with Pat\",\"0.25\",\"0.25\"", 
                                  "\"T14001\",\"Staff Meeting\",\"0.25\",\"0.25\"",
                                  "\"T14001\",\"Think Printer Application Setup on Wildcat\",\"0.25\",\"0.25\"",
-                                "\"T14001\",\"With Pat regarding Schedule\",\"0.25\",\"0.25\"",
+                                "\"T14001\",\"With Pat, regarding Schedule\",\"0.25\",\"0.25\"",
                                 "\"Total\",\"\",\"9.00\",\"9.00\""
                              };
             return lines;
