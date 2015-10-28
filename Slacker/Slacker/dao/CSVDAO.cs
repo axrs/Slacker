@@ -11,10 +11,9 @@ namespace Slacker.DAO
     class CSVDAO : AbstractDAO, ICommand
     {
         private List<TimeEntry> _times = new List<TimeEntry>();
-        private DateTime _entryDate = DateTime.Now;
         private string _filePath = string.Empty;
 
-        private Slacker.Native.IFileHandler _handler;
+        private IFileHandler _handler;
 
         public CSVDAO(string file)
         {
@@ -70,10 +69,11 @@ namespace Slacker.DAO
             string[] fields = line.Split(',');
 
             TimeEntry entry = new TimeEntry();
-            entry.day = _entryDate;
             entry.jobId = fields[0].Trim('"');
             entry.description = fields[1].Trim('"');
-            entry.hours = Convert.ToDouble(fields[2].Trim('"'));
+            entry.day = Convert.ToDateTime(fields[2].Trim('"'));
+            int fieldLength = fields.Length;
+            entry.hours = Convert.ToDouble(fields[fieldLength-1].Trim('"'));
             return entry;
         }
 
@@ -81,10 +81,11 @@ namespace Slacker.DAO
         private TimeEntry processEntry(string[] fields)
         {
             TimeEntry entry = new TimeEntry();
-            entry.day = _entryDate;
             entry.jobId = fields[0].Trim('"');
             entry.description = fields[1].Trim('"');
-            entry.hours = Convert.ToDouble(fields[2].Trim('"'));
+            entry.day = Convert.ToDateTime(fields[2].Trim('"'));
+            int fieldLength = fields.Length;
+            entry.hours = Convert.ToDouble(fields[fieldLength-1].Trim('"'));
             return entry;
         }
 
@@ -108,8 +109,6 @@ namespace Slacker.DAO
         public override void loadTimes()
         {
             string[] lines = FileHandler.ReadAllLines(file);
-
-            _entryDate = processFirstLine(lines[0]);
 
             //process the second to second last lines
             for (int i = 1; i < lines.Length - 1; i++)

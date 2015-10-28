@@ -73,18 +73,24 @@ namespace Slacker
             if (openConnection())
             {                
                 for (int i = 0; i < times.Count; i++){
-                    MySqlCommand cmd = new MySqlCommand("INSERT INTO times (job_id, employee_id, date, hours, task, details) VALUES (?job, ?emp, ?date, ?hrs, ?task, ?details)", _connection);
 
                     TimeEntry t = times[i];
-                    cmd.Parameters.AddWithValue("?job", t.jobId);
-                    cmd.Parameters.AddWithValue("?emp", TimeEntry.Employee);
-                    cmd.Parameters.AddWithValue("?date", t.day.Date);
-                    cmd.Parameters.AddWithValue("?hrs", t.hours);
-                    cmd.Parameters.AddWithValue("?task", TimeEntry.DefaultTaskType);
-                    cmd.Parameters.AddWithValue("?details", t.description);
-                    cmd.Prepare();
+                    if (t.isValid())
+                    {
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO times (job_id, employee_id, date, hours, task, details, rate, rework) VALUES (?job, ?emp, ?date, ?hrs, ?task, ?details, ?rate, 'N')", _connection);
 
-                    cmd.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("?job", t.jobId);
+                        cmd.Parameters.AddWithValue("?emp", TimeEntry.Employee);
+                        cmd.Parameters.AddWithValue("?date", t.day.Date);
+                        cmd.Parameters.AddWithValue("?hrs", t.hours);
+                        cmd.Parameters.AddWithValue("?task", TimeEntry.DefaultTaskType);
+                        cmd.Parameters.AddWithValue("?details", t.description);
+                        cmd.Parameters.AddWithValue("?rate", TimeEntry.Rate);
+                        cmd.Prepare();
+
+                        cmd.ExecuteNonQuery();
+                    }
+  
                 }
             }
             

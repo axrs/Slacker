@@ -4,16 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Text;
-using System.Windows.Forms;
 using Slacker.DAO;
+using CADCoder.Controls.Basic;
+using Slacker.Native;
 
 namespace Slacker
 {
-    public partial class Form1 : Form
+    public partial class Slacker : Form
     {
 
         private MySQLStorage _store = new MySQLStorage();
-        public Form1()
+        public Slacker()
         {
             InitializeComponent();
         }
@@ -25,9 +26,10 @@ namespace Slacker
             {
                 string fileToOpen = FD.FileName;
                 CSVDAO list = new CSVDAO(FD.FileName);
-                list.FileHandler = new Slacker.Native.WindowsFileHandler();
+                list.FileHandler = new WindowsFileHandler();
                 list.loadTimes();
                 _store.insert(list.getTimes());
+                System.Windows.Forms.MessageBox.Show("Complete.");
             }
         }
     }
